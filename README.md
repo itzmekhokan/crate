@@ -6,6 +6,9 @@
 [![PHP](https://img.shields.io/badge/php-%3E%3D7.4-8892BF?logo=php&logoColor=white)](composer.json)
 [![WordPress](https://img.shields.io/badge/WordPress-%3E%3D6.5-21759B?logo=wordpress&logoColor=white)](readme.txt)
 [![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](LICENSE)
+[![Website](https://img.shields.io/badge/docs-itzmekhokan.github.io%2Fcrate-4F6BFF)](https://itzmekhokan.github.io/crate/)
+
+🔗 **Website & docs:** https://itzmekhokan.github.io/crate/
 
 WordPress full-site-editing structure (patterns, template parts, templates, global styles, navigation) lives in the database. Moving *some* of it from staging to production today means a full DB sync (destructive to orders/users/form entries) or manual copy-paste. **Crate** packs exactly what you choose into a portable, git-trackable bundle and applies it elsewhere with stable identity, ID remapping, and media sideloading — never touching the data you didn't select.
 
