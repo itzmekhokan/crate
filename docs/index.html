@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crate — selective FSE promotion for WordPress</title>
+<meta name="description" content="Crate selectively promotes WordPress Full-Site-Editing structure and content — patterns, templates, parts, global styles, navigation — between environments, without a full database migration.">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+
+<!-- Open Graph / social -->
+<meta property="og:title" content="Crate — selective FSE promotion for WordPress">
+<meta property="og:description" content="Promote FSE structure & content between environments. No full DB migration.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://itzmekhokan.github.io/crate/">
+<meta property="og:image" content="https://itzmekhokan.github.io/crate/assets/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root{
+    --blue1:#4F6BFF; --blue2:#2847D9; --ink:#0f1530; --muted:#5b6486;
+    --card:#ffffff; --bg:#f5f7ff; --line:#e6e9f5; --amber:#FFB100; --code:#1a2240;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:var(--blue2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  code,pre{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+
+  /* Hero */
+  header.hero{background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;padding:72px 0 64px;text-align:center}
+  .hero img.mark{width:104px;height:104px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.25))}
+  .hero h1{font-size:64px;font-weight:800;letter-spacing:-2px;margin:18px 0 6px}
+  .hero .tag{font-size:21px;color:#dde3ff;margin:0 auto 8px;max-width:620px}
+  .hero .sub{font-size:15px;color:#aab6f5;margin:0 0 28px}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+  .badges img{height:22px}
+  .cta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;font-size:15px}
+  .btn.primary{background:#fff;color:var(--blue2)}
+  .btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .btn:hover{text-decoration:none;transform:translateY(-1px)}
+
+  /* Sections */
+  section{padding:56px 0}
+  section h2{font-size:30px;margin:0 0 8px;letter-spacing:-.5px}
+  section .lede{color:var(--muted);margin:0 0 28px;font-size:17px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .feat h3{margin:0 0 6px;font-size:17px}
+  .feat p{margin:0;color:var(--muted);font-size:14.5px}
+  .feat .dot{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--blue1),var(--blue2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-bottom:12px}
+
+  pre{background:var(--code);color:#e7ecff;padding:18px 20px;border-radius:12px;overflow:auto;font-size:14px;line-height:1.7}
+  pre .c{color:#8a96c9}
+  pre .k{color:var(--amber)}
+
+  .tree{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;font-size:14px;color:var(--ink);white-space:pre;overflow:auto}
+  .tree .c{color:var(--muted)}
+
+  table.road{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  table.road th,table.road td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);font-size:14.5px}
+  table.road th{background:#eef1ff;font-weight:700}
+  table.road tr:last-child td{border-bottom:0}
+  .pill{font-size:12px;font-weight:700;padding:2px 9px;border-radius:20px}
+  .pill.done{background:#e3f7ea;color:#137a3c}
+  .pill.plan{background:#eef1ff;color:var(--blue2)}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  @media(max-width:640px){.hero h1{font-size:46px}.hero .tag{font-size:18px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="mark" src="assets/icon.svg" alt="Crate logo">
+    <h1>Crate</h1>
+    <p class="tag">Selectively promote WordPress Full-Site-Editing structure between environments — without a full database migration.</p>
+    <p class="sub">Patterns · templates · template parts · global styles · navigation</p>
+    <div class="badges">
+      <a href="https://packagist.org/packages/itzmekhokan/crate"><img src="https://img.shields.io/packagist/v/itzmekhokan/crate?logo=packagist&label=Packagist" alt="Packagist"></a>
+      <img src="https://img.shields.io/badge/php-%3E%3D7.4-8892BF?logo=php&logoColor=white" alt="PHP >= 7.4">
+      <img src="https://img.shields.io/badge/WordPress-%3E%3D6.5-21759B?logo=wordpress&logoColor=white" alt="WordPress >= 6.5">
+      <img src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue" alt="License GPL-2.0-or-later">
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/itzmekhokan/crate">View on GitHub</a>
+      <a class="btn ghost" href="#install">Install</a>
+      <a class="btn ghost" href="#usage">Usage</a>
+    </div>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <h2>The problem</h2>
+    <p class="lede">FSE structure lives in the database. Moving <em>some</em> of it from staging to production today means a full DB sync — destructive to orders, users, and form entries — or tedious manual copy-paste.</p>
+    <div class="grid">
+      <div class="feat"><div class="dot">◧</div><h3>Selective</h3><p>Promote exactly the entities you choose. Everything else on the target is left untouched.</p></div>
+      <div class="feat"><div class="dot">▦</div><h3>Portable bundles</h3><p>Export to a self-describing, git-trackable folder: a manifest, one JSON per entity, plus referenced media.</p></div>
+      <div class="feat"><div class="dot">⟲</div><h3>Idempotent</h3><p>Re-applying updates the same entity instead of duplicating it — matched by stable identity or theme + slug.</p></div>
+      <div class="feat"><div class="dot">↦</div><h3>Reference remapping</h3><p>Numeric IDs baked into block markup (images, reusable blocks, navigation) are re-resolved to the target site.</p></div>
+      <div class="feat"><div class="dot">▢</div><h3>Media-aware</h3><p>Referenced media is imported and de-duplicated by content hash, with URLs and IDs rewritten in the markup.</p></div>
+      <div class="feat"><div class="dot">⌘</div><h3>Diff before apply</h3><p>Preview exactly what would be created, updated, or left unchanged — without writing anything.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="lede">A bundle is just files you can review, commit, and move between environments however you like.</p>
+    <div class="tree">your-crate/
+├─ manifest.json              <span class="c"># schema version, source site, entity index + checksums</span>
+├─ entities/
+│   └─ wp_block/&lt;slug&gt;.json    <span class="c"># one file per exported entity (content + references)</span>
+└─ media/
+    ├─ &lt;sha256&gt;.&lt;ext&gt;          <span class="c"># content-addressed media blobs (deduped)</span>
+    └─ media.json              <span class="c"># id → hash → url map for sideloading on import</span></div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install</h2>
+    <p class="lede">Crate is a WP-CLI tool — <a href="https://wp-cli.org/">WP-CLI</a> is required.</p>
+    <pre><span class="c"># Composer (Bedrock and other Composer-managed sites)</span>
+composer require itzmekhokan/crate
+wp plugin activate crate
+
+<span class="c"># WordPress.org directory (once approved)</span>
+wp plugin install crate --activate
+
+<span class="c"># Manual: download a release zip, unzip into wp-content/plugins/, activate</span></pre>
+  </div>
+</section>
+
+<section id="usage" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Usage</h2>
+    <p class="lede">Three commands: export on the source, diff &amp; apply on the target.</p>
+    <pre><span class="c"># On the source — export structure into a crate</span>
+wp crate export <span class="k">--all</span> --dir=./my-crate
+wp crate export <span class="k">--patterns --templates --parts --global-styles --navigation</span> --dir=./my-crate
+wp crate export <span class="k">--patterns</span> --slug=hero,call-to-action --dir=./my-crate
+
+<span class="c"># On the target — preview what would change (no writes)</span>
+wp crate diff --dir=./my-crate
+
+<span class="c"># On the target — apply (remaps IDs, sideloads media)</span>
+wp crate apply --dir=./my-crate <span class="k">--yes</span></pre>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <h2>Roadmap</h2>
+    <p class="lede">Crate is early software (<code>0.1.0</code>). The export → import loop is complete for five entity types.</p>
+    <table class="road">
+      <tr><th>Phase</th><th>Scope</th><th>Status</th></tr>
+      <tr><td>1–2</td><td>Patterns + import side (diff / apply, ID remapping, media sideloading)</td><td><span class="pill done">done</span></td></tr>
+      <tr><td>2b</td><td>Templates, template parts, global styles (theme + slug identity)</td><td><span class="pill done">done</span></td></tr>
+      <tr><td>3a</td><td>Navigation menus + reference remapping</td><td><span class="pill done">done</span></td></tr>
+      <tr><td>3b</td><td>Selected posts/CPTs by slug (+ navigation-link ID remapping)</td><td><span class="pill plan">planned</span></td></tr>
+      <tr><td>4</td><td>Admin UI (checkbox tree + visual diff)</td><td><span class="pill plan">planned</span></td></tr>
+      <tr><td>5</td><td>Direct site → site push over REST (application passwords)</td><td><span class="pill plan">planned</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Crate</strong> · GPL-2.0-or-later · built by <a href="https://github.com/itzmekhokan">Khokan Sardar</a></p>
+    <p><a href="https://github.com/itzmekhokan/crate">GitHub</a> · <a href="https://github.com/itzmekhokan/crate/issues">Issues</a> · <a href="https://packagist.org/packages/itzmekhokan/crate">Packagist</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

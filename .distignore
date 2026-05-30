@@ -6,6 +6,7 @@
 /.gitignore
 /.distignore
 /.wordpress-org
+/docs
 /SUBMISSION.md
 /tests
 /node_modules
