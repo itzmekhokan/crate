@@ -61,6 +61,15 @@ composer test          # PHPUnit — needs the WP test library (see tests/bootst
 
 Tests use the WordPress PHPUnit harness. Set `WP_TESTS_DIR`, or run from a workspace where `wordpress-develop` is a sibling directory (the bootstrap will find it automatically).
 
+## Contributing
+
+Issues and pull requests are welcome:
+
+- **Report a bug or request a feature:** [github.com/itzmekhokan/crate/issues](https://github.com/itzmekhokan/crate/issues)
+- **Source & releases:** [github.com/itzmekhokan/crate](https://github.com/itzmekhokan/crate)
+
+Please run the test suite (`composer test`) and ensure it passes before opening a PR.
+
 ## License
 
-GPL-2.0-or-later.
+GPL-2.0-or-later. See [LICENSE](LICENSE).

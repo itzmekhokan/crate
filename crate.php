@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name:       Crate
+ * Plugin URI:        https://github.com/itzmekhokan/crate
  * Description:       Selectively promote WordPress full-site-editing structure and content (patterns, templates, parts, global styles, navigation) between environments — without a full database migration.
  * Version:           0.1.0-alpha
  * Requires at least: 6.5
