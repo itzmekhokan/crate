@@ -2,6 +2,11 @@
 
 > Selectively promote WordPress FSE structure and content between environments — without a full database migration.
 
+[![Packagist Version](https://img.shields.io/packagist/v/itzmekhokan/crate?logo=packagist&label=Packagist)](https://packagist.org/packages/itzmekhokan/crate)
+[![PHP](https://img.shields.io/badge/php-%3E%3D7.4-8892BF?logo=php&logoColor=white)](composer.json)
+[![WordPress](https://img.shields.io/badge/WordPress-%3E%3D6.5-21759B?logo=wordpress&logoColor=white)](readme.txt)
+[![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](LICENSE)
+
 WordPress full-site-editing structure (patterns, template parts, templates, global styles, navigation) lives in the database. Moving *some* of it from staging to production today means a full DB sync (destructive to orders/users/form entries) or manual copy-paste. **Crate** packs exactly what you choose into a portable, git-trackable bundle and applies it elsewhere with stable identity, ID remapping, and media sideloading — never touching the data you didn't select.
 
 > **Status:** `0.1.0` — early release. Patterns, templates, template parts, global styles, and navigation, with a full export→import loop. Not yet production-hardened.
@@ -22,6 +27,26 @@ Two ideas make it safe and repeatable:
 
 - **Stable identity.** Standalone posts (patterns, navigation) are stamped with a portable UUID (`_crate_guid`) so re-applying updates the same entity instead of duplicating it. Templates, parts, and global styles key on `theme + slug` instead, since those are file-or-DB by nature.
 - **Reference rewriting.** Numeric IDs baked into block markup (image IDs, reusable-block refs, navigation refs, gallery ID lists) are extracted on export with their position in the block tree, then re-resolved to local IDs on import.
+
+## Installation
+
+Crate is a WP-CLI tool — [WP-CLI](https://wp-cli.org/) is required to use it.
+
+**Via Composer** (for Composer-managed sites such as [Bedrock](https://roots.io/bedrock/)):
+
+```bash
+composer require itzmekhokan/crate
+```
+
+The `wordpress-plugin` package type installs it into `wp-content/plugins/crate`. Then activate it:
+
+```bash
+wp plugin activate crate
+```
+
+**From the WordPress.org Plugin Directory** (once approved): search for "Crate" under **Plugins → Add New**, or `wp plugin install crate --activate`.
+
+**Manually:** download a [release](https://github.com/itzmekhokan/crate/releases), unzip it into `wp-content/plugins/`, and activate.
 
 ## Usage
 
