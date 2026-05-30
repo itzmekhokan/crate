@@ -1,0 +1,16 @@
+# Files and directories excluded from the distributed (WordPress.org) plugin.
+# Used by the WordPress.org deploy tooling; keeps dev-only files out of releases.
+
+/.git
+/.github
+/.gitignore
+/.distignore
+/tests
+/node_modules
+/vendor
+/composer.json
+/composer.lock
+/phpunit.xml.dist
+/phpcs.xml.dist
+/.phpunit.result.cache
+/README.md

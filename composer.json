@@ -1,0 +1,39 @@
+{
+	"name": "itzmekhokan/crate",
+	"description": "Crate — selectively promote WordPress FSE structure and content (patterns, templates, parts, global styles, navigation) between environments, without a full database migration.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"fse",
+		"block-themes",
+		"migration",
+		"staging",
+		"deployment"
+	],
+	"require": {
+		"php": ">=7.4"
+	},
+	"require-dev": {
+		"yoast/phpunit-polyfills": "^2.0 || ^3.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Crate\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Crate\\Tests\\": "tests/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"test": "phpunit"
+	}
+}

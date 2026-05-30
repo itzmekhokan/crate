@@ -1,0 +1,6 @@
+/vendor/
+/node_modules/
+/crate-bundle-*/
+*.log
+.DS_Store
+.phpunit.result.cache
