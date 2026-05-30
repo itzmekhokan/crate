@@ -5,6 +5,8 @@
 /.github
 /.gitignore
 /.distignore
+/.wordpress-org
+/SUBMISSION.md
 /tests
 /node_modules
 /vendor
