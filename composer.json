@@ -3,6 +3,7 @@
 	"description": "Crate — selectively promote WordPress FSE structure and content (patterns, templates, parts, global styles, navigation) between environments, without a full database migration.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
+	"homepage": "https://github.com/itzmekhokan/crate",
 	"keywords": [
 		"wordpress",
 		"fse",
@@ -11,8 +12,20 @@
 		"staging",
 		"deployment"
 	],
+	"authors": [
+		{
+			"name": "Khokan Sardar",
+			"homepage": "https://github.com/itzmekhokan",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/itzmekhokan/crate/issues",
+		"source": "https://github.com/itzmekhokan/crate"
+	},
 	"require": {
-		"php": ">=7.4"
+		"php": ">=7.4",
+		"composer/installers": "^1.0 || ^2.0"
 	},
 	"require-dev": {
 		"yoast/phpunit-polyfills": "^2.0 || ^3.0"
@@ -29,6 +42,7 @@
 	},
 	"config": {
 		"allow-plugins": {
+			"composer/installers": true,
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		},
 		"sort-packages": true
