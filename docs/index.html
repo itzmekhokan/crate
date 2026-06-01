@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crate — selective FSE promotion for WordPress</title>
-<meta name="description" content="Crate selectively promotes WordPress Full-Site-Editing structure and content — patterns, templates, parts, global styles, navigation — between environments, without a full database migration.">
+<title>SiteCargo — selective FSE promotion for WordPress</title>
+<meta name="description" content="SiteCargo selectively promotes WordPress Full-Site-Editing structure and content — patterns, templates, parts, global styles, navigation — between environments, without a full database migration.">
 <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
 
 <!-- Open Graph / social -->
-<meta property="og:title" content="Crate — selective FSE promotion for WordPress">
+<meta property="og:title" content="SiteCargo — selective FSE promotion for WordPress">
 <meta property="og:description" content="Promote FSE structure & content between environments. No full DB migration.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://itzmekhokan.github.io/crate/">
-<meta property="og:image" content="https://itzmekhokan.github.io/crate/assets/banner.png">
+<meta property="og:url" content="https://itzmekhokan.github.io/sitecargo/">
+<meta property="og:image" content="https://itzmekhokan.github.io/sitecargo/assets/banner.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
@@ -76,18 +76,18 @@
 
 <header class="hero">
   <div class="wrap">
-    <img class="mark" src="assets/icon.svg" alt="Crate logo">
-    <h1>Crate</h1>
+    <img class="mark" src="assets/icon.svg" alt="SiteCargo logo">
+    <h1>SiteCargo</h1>
     <p class="tag">Selectively promote WordPress Full-Site-Editing structure between environments — without a full database migration.</p>
     <p class="sub">Patterns · templates · template parts · global styles · navigation</p>
     <div class="badges">
-      <a href="https://packagist.org/packages/itzmekhokan/crate"><img src="https://img.shields.io/packagist/v/itzmekhokan/crate?logo=packagist&label=Packagist" alt="Packagist"></a>
+      <a href="https://packagist.org/packages/itzmekhokan/sitecargo"><img src="https://img.shields.io/packagist/v/itzmekhokan/sitecargo?logo=packagist&label=Packagist" alt="Packagist"></a>
       <img src="https://img.shields.io/badge/php-%3E%3D7.4-8892BF?logo=php&logoColor=white" alt="PHP >= 7.4">
       <img src="https://img.shields.io/badge/WordPress-%3E%3D6.5-21759B?logo=wordpress&logoColor=white" alt="WordPress >= 6.5">
       <img src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue" alt="License GPL-2.0-or-later">
     </div>
     <div class="cta">
-      <a class="btn primary" href="https://github.com/itzmekhokan/crate">View on GitHub</a>
+      <a class="btn primary" href="https://github.com/itzmekhokan/sitecargo">View on GitHub</a>
       <a class="btn ghost" href="#install">Install</a>
       <a class="btn ghost" href="#usage">Usage</a>
     </div>
@@ -113,7 +113,7 @@
   <div class="wrap">
     <h2>How it works</h2>
     <p class="lede">A bundle is just files you can review, commit, and move between environments however you like.</p>
-    <div class="tree">your-crate/
+    <div class="tree">your-bundle/
 ├─ manifest.json              <span class="c"># schema version, source site, entity index + checksums</span>
 ├─ entities/
 │   └─ wp_block/&lt;slug&gt;.json    <span class="c"># one file per exported entity (content + references)</span>
@@ -126,13 +126,13 @@
 <section id="install">
   <div class="wrap">
     <h2>Install</h2>
-    <p class="lede">Crate is a WP-CLI tool — <a href="https://wp-cli.org/">WP-CLI</a> is required.</p>
+    <p class="lede">SiteCargo is a WP-CLI tool — <a href="https://wp-cli.org/">WP-CLI</a> is required.</p>
     <pre><span class="c"># Composer (Bedrock and other Composer-managed sites)</span>
-composer require itzmekhokan/crate
-wp plugin activate crate
+composer require itzmekhokan/sitecargo
+wp plugin activate sitecargo
 
 <span class="c"># WordPress.org directory (once approved)</span>
-wp plugin install crate --activate
+wp plugin install sitecargo --activate
 
 <span class="c"># Manual: download a release zip, unzip into wp-content/plugins/, activate</span></pre>
   </div>
@@ -142,23 +142,23 @@ wp plugin install crate --activate
   <div class="wrap">
     <h2>Usage</h2>
     <p class="lede">Three commands: export on the source, diff &amp; apply on the target.</p>
-    <pre><span class="c"># On the source — export structure into a crate</span>
-wp crate export <span class="k">--all</span> --dir=./my-crate
-wp crate export <span class="k">--patterns --templates --parts --global-styles --navigation</span> --dir=./my-crate
-wp crate export <span class="k">--patterns</span> --slug=hero,call-to-action --dir=./my-crate
+    <pre><span class="c"># On the source — export structure into a bundle</span>
+wp sitecargo export <span class="k">--all</span> --dir=./my-bundle
+wp sitecargo export <span class="k">--patterns --templates --parts --global-styles --navigation</span> --dir=./my-bundle
+wp sitecargo export <span class="k">--patterns</span> --slug=hero,call-to-action --dir=./my-bundle
 
 <span class="c"># On the target — preview what would change (no writes)</span>
-wp crate diff --dir=./my-crate
+wp sitecargo diff --dir=./my-bundle
 
 <span class="c"># On the target — apply (remaps IDs, sideloads media)</span>
-wp crate apply --dir=./my-crate <span class="k">--yes</span></pre>
+wp sitecargo apply --dir=./my-bundle <span class="k">--yes</span></pre>
   </div>
 </section>
 
 <section id="roadmap">
   <div class="wrap">
     <h2>Roadmap</h2>
-    <p class="lede">Crate is early software (<code>0.1.0</code>). The export → import loop is complete for five entity types.</p>
+    <p class="lede">SiteCargo is early software (<code>0.1.0</code>). The export → import loop is complete for five entity types.</p>
     <table class="road">
       <tr><th>Phase</th><th>Scope</th><th>Status</th></tr>
       <tr><td>1–2</td><td>Patterns + import side (diff / apply, ID remapping, media sideloading)</td><td><span class="pill done">done</span></td></tr>
@@ -173,8 +173,8 @@ wp crate apply --dir=./my-crate <span class="k">--yes</span></pre>
 
 <footer>
   <div class="wrap">
-    <p><strong>Crate</strong> · GPL-2.0-or-later · built by <a href="https://github.com/itzmekhokan">Khokan Sardar</a></p>
-    <p><a href="https://github.com/itzmekhokan/crate">GitHub</a> · <a href="https://github.com/itzmekhokan/crate/issues">Issues</a> · <a href="https://packagist.org/packages/itzmekhokan/crate">Packagist</a></p>
+    <p><strong>SiteCargo</strong> · GPL-2.0-or-later · built by <a href="https://github.com/itzmekhokan">Khokan Sardar</a></p>
+    <p><a href="https://github.com/itzmekhokan/sitecargo">GitHub</a> · <a href="https://github.com/itzmekhokan/sitecargo/issues">Issues</a> · <a href="https://packagist.org/packages/itzmekhokan/sitecargo">Packagist</a></p>
   </div>
 </footer>
 

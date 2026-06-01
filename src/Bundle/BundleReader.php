@@ -2,12 +2,12 @@
 /**
  * Bundle reader.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Bundle;
+namespace SiteCargo\Bundle;
 
 defined( 'ABSPATH' ) || exit;
 

@@ -1,9 +1,9 @@
 {
-	"name": "itzmekhokan/crate",
-	"description": "Crate — selectively promote WordPress FSE structure and content (patterns, templates, parts, global styles, navigation) between environments, without a full database migration.",
+	"name": "itzmekhokan/sitecargo",
+	"description": "SiteCargo — selectively promote WordPress FSE structure and content (patterns, templates, parts, global styles, navigation) between environments, without a full database migration.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
-	"homepage": "https://github.com/itzmekhokan/crate",
+	"homepage": "https://github.com/itzmekhokan/sitecargo",
 	"keywords": [
 		"wordpress",
 		"fse",
@@ -20,8 +20,8 @@
 		}
 	],
 	"support": {
-		"issues": "https://github.com/itzmekhokan/crate/issues",
-		"source": "https://github.com/itzmekhokan/crate"
+		"issues": "https://github.com/itzmekhokan/sitecargo/issues",
+		"source": "https://github.com/itzmekhokan/sitecargo"
 	},
 	"require": {
 		"php": ">=7.4",
@@ -32,12 +32,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Crate\\": "src/"
+			"SiteCargo\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Crate\\Tests\\": "tests/"
+			"SiteCargo\\Tests\\": "tests/"
 		}
 	},
 	"config": {

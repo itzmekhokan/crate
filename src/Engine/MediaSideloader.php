@@ -2,20 +2,20 @@
 /**
  * Media sideloading for import.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Engine;
+namespace SiteCargo\Engine;
 
-use Crate\Bundle\BundleReader;
+use SiteCargo\Bundle\BundleReader;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Imports media blobs from a bundle into the target's media library. Idempotent
- * by content hash: a blob already imported (tracked via the _crate_media_hash
+ * by content hash: a blob already imported (tracked via the _sitecargo_media_hash
  * meta) is reused rather than duplicated, so repeated applies are stable.
  */
 final class MediaSideloader {
@@ -23,7 +23,7 @@ final class MediaSideloader {
 	/**
 	 * Meta key recording the bundle hash an attachment was imported from.
 	 */
-	public const HASH_META_KEY = '_crate_media_hash';
+	public const HASH_META_KEY = '_sitecargo_media_hash';
 
 	/**
 	 * @var BundleReader

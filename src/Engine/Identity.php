@@ -2,17 +2,17 @@
 /**
  * Stable cross-environment identity.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Engine;
+namespace SiteCargo\Engine;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Post IDs are not portable between environments, so Crate stamps a stable
+ * Post IDs are not portable between environments, so SiteCargo stamps a stable
  * UUID on each exported post and resolves by that UUID on import. This makes
  * repeated export/apply cycles idempotent instead of creating duplicates.
  */
@@ -21,7 +21,7 @@ final class Identity {
 	/**
 	 * Post meta key holding the portable identity.
 	 */
-	public const GUID_META_KEY = '_crate_guid';
+	public const GUID_META_KEY = '_sitecargo_guid';
 
 	/**
 	 * Return the post's existing GUID, stamping a new one if absent.
@@ -42,7 +42,7 @@ final class Identity {
 	 * Find a local post ID by GUID, or null if none exists yet.
 	 *
 	 * Resolves directly against the meta table rather than via WP_Query: the
-	 * post types Crate handles (wp_block, wp_template, wp_global_styles, …)
+	 * post types SiteCargo handles (wp_block, wp_template, wp_global_styles, …)
 	 * are flagged `exclude_from_search`, so a `'post_type' => 'any'` query would
 	 * never return them. The join to the posts table ensures the row still
 	 * exists (orphaned meta is ignored).

@@ -2,12 +2,12 @@
 /**
  * Block-markup reference extraction and rewriting.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Engine;
+namespace SiteCargo\Engine;
 
 defined( 'ABSPATH' ) || exit;
 

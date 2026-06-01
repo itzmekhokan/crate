@@ -2,14 +2,14 @@
 /**
  * Entity type contract.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Entity;
+namespace SiteCargo\Entity;
 
-use Crate\Engine\ExportContext;
+use SiteCargo\Engine\ExportContext;
 
 defined( 'ABSPATH' ) || exit;
 

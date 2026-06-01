@@ -2,12 +2,12 @@
 /**
  * Navigation (wp_navigation) entity type.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Entity;
+namespace SiteCargo\Entity;
 
 defined( 'ABSPATH' ) || exit;
 

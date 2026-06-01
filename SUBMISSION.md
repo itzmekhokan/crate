@@ -1,11 +1,11 @@
-# WordPress.org submission guide — Crate
+# WordPress.org submission guide — SiteCargo
 
-Internal checklist for getting Crate into the WordPress.org Plugin Directory.
+Internal checklist for getting SiteCargo into the WordPress.org Plugin Directory.
 Not shipped in the plugin ZIP (excluded via `.distignore`).
 
 ## 1. Pre-flight (all ✅ as of this prep)
 
-- [x] Unique slug `crate` (no restricted terms — `wp` removed earlier).
+- [x] Unique slug `sitecargo` (no restricted terms — `wp` removed earlier).
 - [x] `readme.txt` in WP.org format: header, short description, Description,
       Installation, FAQ, Changelog, Upgrade Notice, External services = none.
 - [x] GPL-compatible license declared in header **and** `readme.txt`, with a
@@ -24,7 +24,7 @@ Not shipped in the plugin ZIP (excluded via `.distignore`).
       The Stable tag must match the SVN tag you create after approval.
 - [ ] **Tested up to.** Currently `7.0`. Must be a *released* WP version at
       submission time — confirm it matches the latest stable WordPress.
-- [ ] **Contributor account.** `readme.txt` lists `Contributors: itzmekhokan`.
+- [ ] **Contributor account.** `readme.txt` lists `Contributors: khokansardar`.
       That must be your wordpress.org username (the one you submit with).
 
 ## 3. Build the submission ZIP
@@ -32,18 +32,18 @@ Not shipped in the plugin ZIP (excluded via `.distignore`).
 From the plugin root, build the distributed view (respects `.distignore`):
 
 ```bash
-# Quick local build (rsync from .distignore) — produces /tmp/crate-dist/crate.zip
+# Quick local build (rsync from .distignore) — produces /tmp/sitecargo-dist/sitecargo.zip
 # Or, with WP-CLI's dist-archive command:
-wp dist-archive . ./crate.zip
+wp dist-archive . ./sitecargo.zip
 ```
 
-The ZIP's top-level folder **must** be named `crate` (matching the slug).
+The ZIP's top-level folder **must** be named `sitecargo` (matching the slug).
 
 ## 4. Submit for review
 
 1. Sign in at https://wordpress.org/ with your contributor account.
 2. Go to **Add Your Plugin**: https://wordpress.org/plugins/developers/add/
-3. Upload `crate.zip`.
+3. Upload `sitecargo.zip`.
 4. Wait for the manual review (email). Typical turnaround is days to a few
    weeks. They may request changes — reply in the same email thread.
 
@@ -52,7 +52,7 @@ The ZIP's top-level folder **must** be named `crate` (matching the slug).
 
 ## 5. After approval — SVN
 
-You receive an SVN repo at `https://plugins.svn.wordpress.org/crate/`.
+You receive an SVN repo at `https://plugins.svn.wordpress.org/sitecargo/`.
 
 ```
 trunk/        # current code (the plugin files)
@@ -62,7 +62,7 @@ assets/       # banner, icon, screenshots (see .wordpress-org/ASSETS.md)
 
 Workflow:
 
-1. `svn co https://plugins.svn.wordpress.org/crate/`
+1. `svn co https://plugins.svn.wordpress.org/sitecargo/`
 2. Copy the distributed files into `trunk/`.
 3. Copy listing images from `.wordpress-org/` into `assets/`.
 4. `svn cp trunk tags/<version>` to tag the release.

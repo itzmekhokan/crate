@@ -2,22 +2,22 @@
 /**
  * WP-CLI front-end.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\CLI;
+namespace SiteCargo\CLI;
 
-use Crate\Bundle\Bundle;
-use Crate\Engine\Exporter;
-use Crate\Engine\Importer;
-use Crate\Entity\TypeRegistry;
+use SiteCargo\Bundle\Bundle;
+use SiteCargo\Engine\Exporter;
+use SiteCargo\Engine\Importer;
+use SiteCargo\Entity\TypeRegistry;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Crate site structure between environments.
+ * SiteCargo site structure between environments.
  */
 final class Command {
 
@@ -48,15 +48,16 @@ final class Command {
 	 * : Restrict to a comma-separated list of slugs.
 	 *
 	 * [--dir=<path>]
-	 * : Output directory for the bundle. Defaults to ./crate-bundle-<timestamp>.
+	 * : Output directory for the bundle. Defaults to the uploads directory:
+	 * wp-content/uploads/sitecargo/bundle-<timestamp>.
 	 *
 	 * ## EXAMPLES
 	 *
 	 *     # Export patterns + templates + parts + global styles.
-	 *     $ wp crate export --all --dir=./my-bundle
+	 *     $ wp sitecargo export --all --dir=./my-bundle
 	 *
 	 *     # Export just two patterns.
-	 *     $ wp crate export --patterns --slug=hero,call-to-action --dir=./my-bundle
+	 *     $ wp sitecargo export --patterns --slug=hero,call-to-action --dir=./my-bundle
 	 *
 	 * @when after_wp_load
 	 *
@@ -81,7 +82,7 @@ final class Command {
 			\WP_CLI::error( 'Nothing selected. Pass one of --patterns, --templates, --parts, --global-styles, or --all.' );
 		}
 
-		$dir    = isset( $assoc['dir'] ) ? (string) $assoc['dir'] : getcwd() . '/crate-bundle-' . gmdate( 'Ymd-His' );
+		$dir    = isset( $assoc['dir'] ) ? (string) $assoc['dir'] : self::default_bundle_dir();
 		$bundle = new Bundle( $dir );
 
 		$opts = array();
@@ -115,7 +116,7 @@ final class Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     $ wp crate diff --dir=./my-bundle
+	 *     $ wp sitecargo diff --dir=./my-bundle
 	 *
 	 * @when after_wp_load
 	 *
@@ -197,8 +198,8 @@ final class Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     $ wp crate apply --dir=./my-bundle
-	 *     $ wp crate apply --dir=./my-bundle --yes
+	 *     $ wp sitecargo apply --dir=./my-bundle
+	 *     $ wp sitecargo apply --dir=./my-bundle --yes
 	 *
 	 * @when after_wp_load
 	 *
@@ -226,6 +227,21 @@ final class Command {
 				$result['media_imported']
 			)
 		);
+	}
+
+	/**
+	 * Default output directory for a new bundle, inside the site's uploads
+	 * directory (e.g. wp-content/uploads/sitecargo/bundle-<timestamp>).
+	 *
+	 * Writing under uploads — rather than the current working directory or the
+	 * plugin folder — keeps bundles outside the plugin (which is wiped on
+	 * upgrade) and compatible with multisite and custom upload paths.
+	 */
+	private static function default_bundle_dir(): string {
+		$uploads = wp_upload_dir();
+		$base    = ! empty( $uploads['basedir'] ) ? $uploads['basedir'] : getcwd();
+
+		return rtrim( (string) $base, '/\\' ) . '/sitecargo/bundle-' . gmdate( 'Ymd-His' );
 	}
 
 	/**

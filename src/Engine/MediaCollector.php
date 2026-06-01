@@ -2,14 +2,14 @@
 /**
  * Media collection for export.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Engine;
+namespace SiteCargo\Engine;
 
-use Crate\Bundle\Bundle;
+use SiteCargo\Bundle\Bundle;
 
 defined( 'ABSPATH' ) || exit;
 

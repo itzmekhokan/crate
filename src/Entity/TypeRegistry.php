@@ -2,17 +2,17 @@
 /**
  * Default entity type registry.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Entity;
+namespace SiteCargo\Entity;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Single source of truth for the entity types Crate knows about, so the
+ * Single source of truth for the entity types SiteCargo knows about, so the
  * exporter, importer, and CLI all agree on the set without duplicating it.
  */
 final class TypeRegistry {

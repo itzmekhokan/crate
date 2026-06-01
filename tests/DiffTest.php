@@ -2,20 +2,20 @@
 /**
  * Tests for "unchanged" detection in the import plan (diff).
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Tests;
+namespace SiteCargo\Tests;
 
-use Crate\Bundle\Bundle;
-use Crate\Engine\Exporter;
-use Crate\Engine\Importer;
+use SiteCargo\Bundle\Bundle;
+use SiteCargo\Engine\Exporter;
+use SiteCargo\Engine\Importer;
 use WP_UnitTestCase;
 
 /**
- * @covers \Crate\Engine\Importer
+ * @covers \SiteCargo\Engine\Importer
  */
 final class DiffTest extends WP_UnitTestCase {
 
@@ -28,7 +28,7 @@ final class DiffTest extends WP_UnitTestCase {
 
 	public function set_up(): void {
 		parent::set_up();
-		$this->dir = get_temp_dir() . 'crate-diff-' . uniqid();
+		$this->dir = get_temp_dir() . 'sitecargo-diff-' . uniqid();
 	}
 
 	public function tear_down(): void {

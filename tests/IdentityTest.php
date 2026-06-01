@@ -2,18 +2,18 @@
 /**
  * Tests for Identity.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Tests;
+namespace SiteCargo\Tests;
 
-use Crate\Engine\Identity;
+use SiteCargo\Engine\Identity;
 use WP_UnitTestCase;
 
 /**
- * @covers \Crate\Engine\Identity
+ * @covers \SiteCargo\Engine\Identity
  */
 final class IdentityTest extends WP_UnitTestCase {
 

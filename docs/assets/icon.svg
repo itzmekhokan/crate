@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Crate">
-  <title>Crate</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="SiteCargo">
+  <title>SiteCargo</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#4F6BFF"/>
@@ -14,12 +14,12 @@
   <!-- Badge background -->
   <rect x="0" y="0" width="256" height="256" rx="56" fill="url(#bg)"/>
 
-  <!-- Promotion arrow (rises up out of the crate) -->
+  <!-- Promotion arrow (rises up out of the sitecargo) -->
   <g fill="url(#arrow)">
     <polygon points="128,22 166,64 142,64 142,96 114,96 114,64 90,64"/>
   </g>
 
-  <!-- Isometric crate -->
+  <!-- Isometric sitecargo -->
   <g stroke="#2847D9" stroke-width="3" stroke-linejoin="round">
     <!-- top face -->
     <polygon points="128,92 184,124 128,156 72,124" fill="#FFFFFF"/>
@@ -29,7 +29,7 @@
     <polygon points="184,124 128,156 128,214 184,182" fill="#B4C2FF"/>
   </g>
 
-  <!-- Crate board / brace detailing -->
+  <!-- SiteCargo board / brace detailing -->
   <g stroke="#2847D9" stroke-width="3" stroke-linecap="round" opacity="0.55" fill="none">
     <!-- diagonal braces -->
     <line x1="78" y1="130" x2="122" y2="205"/>

@@ -2,12 +2,12 @@
 /**
  * Bundle manifest.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Bundle;
+namespace SiteCargo\Bundle;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -28,7 +28,7 @@ final class Manifest {
 	private $schema_version;
 
 	/**
-	 * Generator string, e.g. "crate/0.1.0".
+	 * Generator string, e.g. "sitecargo/0.1.0".
 	 *
 	 * @var string
 	 */

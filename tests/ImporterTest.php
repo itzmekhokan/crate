@@ -2,23 +2,23 @@
 /**
  * Round-trip tests for the export → import loop.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Tests;
+namespace SiteCargo\Tests;
 
-use Crate\Bundle\Bundle;
-use Crate\Engine\Exporter;
-use Crate\Engine\Identity;
-use Crate\Engine\Importer;
-use Crate\Engine\ReferenceRewriter;
-use Crate\Entity\PatternType;
+use SiteCargo\Bundle\Bundle;
+use SiteCargo\Engine\Exporter;
+use SiteCargo\Engine\Identity;
+use SiteCargo\Engine\Importer;
+use SiteCargo\Engine\ReferenceRewriter;
+use SiteCargo\Entity\PatternType;
 use WP_UnitTestCase;
 
 /**
- * @covers \Crate\Engine\Importer
+ * @covers \SiteCargo\Engine\Importer
  */
 final class ImporterTest extends WP_UnitTestCase {
 
@@ -31,7 +31,7 @@ final class ImporterTest extends WP_UnitTestCase {
 
 	public function set_up(): void {
 		parent::set_up();
-		$this->dir = get_temp_dir() . 'crate-test-' . uniqid();
+		$this->dir = get_temp_dir() . 'sitecargo-test-' . uniqid();
 	}
 
 	public function tear_down(): void {

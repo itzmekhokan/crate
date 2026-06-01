@@ -2,18 +2,18 @@
 /**
  * Export orchestrator.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Engine;
+namespace SiteCargo\Engine;
 
-use Crate\Bundle\Bundle;
-use Crate\Bundle\Manifest;
-use Crate\Entity\EntityType;
-use Crate\Entity\TypeRegistry;
-use Crate\Plugin;
+use SiteCargo\Bundle\Bundle;
+use SiteCargo\Bundle\Manifest;
+use SiteCargo\Entity\EntityType;
+use SiteCargo\Entity\TypeRegistry;
+use SiteCargo\Plugin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -71,7 +71,7 @@ final class Exporter {
 
 		$media    = new MediaCollector( $bundle );
 		$context  = new ExportContext( $this->identity, $this->rewriter, $media );
-		$manifest = new Manifest( Plugin::BUNDLE_SCHEMA_VERSION, 'crate/' . Plugin::VERSION, $this->source_info() );
+		$manifest = new Manifest( Plugin::BUNDLE_SCHEMA_VERSION, 'sitecargo/' . Plugin::VERSION, $this->source_info() );
 		$by_type  = array();
 
 		foreach ( $type_keys as $key ) {

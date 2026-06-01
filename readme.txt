@@ -1,5 +1,5 @@
-=== Crate ===
-Contributors: itzmekhokan
+=== SiteCargo ===
+Contributors: khokansardar
 Tags: migration, staging, deployment, full-site-editing, block-themes
 Requires at least: 6.5
 Tested up to: 7.0
@@ -14,7 +14,7 @@ Selectively promote WordPress full-site-editing structure and content between en
 
 WordPress full-site-editing structure — patterns, templates, template parts, global styles, and navigation — lives in the database. Moving *some* of it from staging to production today means either a full database sync (which is destructive to production-only data like orders, users, and form entries) or tedious manual copy-paste.
 
-**Crate** packs exactly what you choose into a portable, reviewable bundle and applies it to another site with stable identity, ID remapping, and media handling — never touching the data you didn't select.
+**SiteCargo** packs exactly what you choose into a portable, reviewable bundle and applies it to another site with stable identity, ID remapping, and media handling — never touching the data you didn't select.
 
 It is currently a **WP-CLI tool** (an admin user interface is on the roadmap).
 
@@ -40,13 +40,13 @@ This plugin does **not** connect to any external service, send any data off-site
 
 == Installation ==
 
-1. Upload the `crate` folder to the `/wp-content/plugins/` directory, or install through the Plugins screen.
+1. Upload the `sitecargo` folder to the `/wp-content/plugins/` directory, or install through the Plugins screen.
 2. Activate the plugin through the Plugins screen.
 3. Use [WP-CLI](https://wp-cli.org/) to run commands, for example:
 
-`wp crate export --all --dir=./my-crate`
-`wp crate diff --dir=./my-crate`
-`wp crate apply --dir=./my-crate --yes`
+`wp sitecargo export --all --dir=./my-bundle`
+`wp sitecargo diff --dir=./my-bundle`
+`wp sitecargo apply --dir=./my-bundle --yes`
 
 WP-CLI is required to use this plugin.
 
@@ -54,7 +54,7 @@ WP-CLI is required to use this plugin.
 
 = Does this replace WP Migrate or a full database export? =
 
-No. Crate is deliberately *selective* — it promotes specific structure and content and leaves everything else (orders, users, comments, options) untouched. Use a full migration tool when you genuinely want to overwrite a whole site.
+No. SiteCargo is deliberately *selective* — it promotes specific structure and content and leaves everything else (orders, users, comments, options) untouched. Use a full migration tool when you genuinely want to overwrite a whole site.
 
 = Will applying a bundle create duplicates if I run it twice? =
 
@@ -66,7 +66,7 @@ Yes. Referenced media is included in the bundle and imported into the target's m
 
 = Is it safe to run on production? =
 
-Always run `wp crate diff` first to preview changes, and keep a backup. This is early (alpha) software.
+Always run `wp sitecargo diff` first to preview changes, and keep a backup. This is early (alpha) software.
 
 == Changelog ==
 

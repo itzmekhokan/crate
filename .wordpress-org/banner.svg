@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1544 500" role="img" aria-label="Crate — selectively promote FSE structure between environments">
-  <title>Crate</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1544 500" role="img" aria-label="SiteCargo — selectively promote FSE structure between environments">
+  <title>SiteCargo</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#5470FF"/>
@@ -19,7 +19,7 @@
   <rect x="0" y="0" width="1544" height="500" fill="url(#bg)"/>
   <rect x="0" y="0" width="1544" height="500" fill="url(#glow)"/>
 
-  <!-- Crate mark (reused from the icon, sans badge) -->
+  <!-- SiteCargo mark (reused from the icon, sans badge) -->
   <g transform="translate(-12,73) scale(1.5)">
     <polygon points="128,22 166,64 142,64 142,96 114,96 114,64 90,64" fill="url(#arrow)"/>
     <g stroke="#2240CF" stroke-width="3" stroke-linejoin="round">
@@ -35,8 +35,8 @@
 
   <!-- Wordmark + tagline -->
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
-    <text x="322" y="232" font-size="138" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Crate</text>
-    <rect x="326" y="262" width="86" height="7" rx="3.5" fill="url(#arrow)"/>
+    <text x="322" y="232" font-size="116" font-weight="800" fill="#FFFFFF" letter-spacing="-3">SiteCargo</text>
+    <rect x="326" y="262" width="120" height="7" rx="3.5" fill="url(#arrow)"/>
     <text x="324" y="330" font-size="40" font-weight="500" fill="#CFD8FF">Selectively promote FSE structure between environments</text>
     <text x="324" y="386" font-size="30" font-weight="500" fill="#9FB0F5">Patterns &#183; templates &#183; parts &#183; global styles &#183; navigation &#8212; no full DB migration</text>
   </g>

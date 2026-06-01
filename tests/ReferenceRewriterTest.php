@@ -2,18 +2,18 @@
 /**
  * Tests for ReferenceRewriter.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Tests;
+namespace SiteCargo\Tests;
 
-use Crate\Engine\ReferenceRewriter;
+use SiteCargo\Engine\ReferenceRewriter;
 use WP_UnitTestCase;
 
 /**
- * @covers \Crate\Engine\ReferenceRewriter
+ * @covers \SiteCargo\Engine\ReferenceRewriter
  */
 final class ReferenceRewriterTest extends WP_UnitTestCase {
 

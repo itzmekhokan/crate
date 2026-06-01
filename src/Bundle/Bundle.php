@@ -2,17 +2,17 @@
 /**
  * Bundle on disk.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Bundle;
+namespace SiteCargo\Bundle;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Read/write access to a Crate bundle directory:
+ * Read/write access to a SiteCargo bundle directory:
  *
  *     <bundle>/
  *       manifest.json

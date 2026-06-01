@@ -2,17 +2,17 @@
 /**
  * Import orchestrator.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Engine;
+namespace SiteCargo\Engine;
 
-use Crate\Bundle\Bundle;
-use Crate\Bundle\BundleReader;
-use Crate\Entity\EntityType;
-use Crate\Entity\TypeRegistry;
+use SiteCargo\Bundle\Bundle;
+use SiteCargo\Bundle\BundleReader;
+use SiteCargo\Entity\EntityType;
+use SiteCargo\Entity\TypeRegistry;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
  * to each entity type, so patterns match by GUID while templates/global styles
  * match by theme+slug. Two public entry points:
  *
- *  - plan()  computes what would happen without writing — backs `wp crate diff`.
+ *  - plan()  computes what would happen without writing — backs `wp sitecargo diff`.
  *  - apply() executes in two passes: ensure every entity has a local post (so
  *            cross-references resolve), then sideload media and rewrite content.
  */

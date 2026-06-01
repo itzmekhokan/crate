@@ -2,23 +2,23 @@
 /**
  * Round-trip test for navigation references.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Tests;
+namespace SiteCargo\Tests;
 
-use Crate\Bundle\Bundle;
-use Crate\Engine\Exporter;
-use Crate\Engine\Identity;
-use Crate\Engine\Importer;
-use Crate\Engine\ReferenceRewriter;
-use Crate\Entity\TemplatePartType;
+use SiteCargo\Bundle\Bundle;
+use SiteCargo\Engine\Exporter;
+use SiteCargo\Engine\Identity;
+use SiteCargo\Engine\Importer;
+use SiteCargo\Engine\ReferenceRewriter;
+use SiteCargo\Entity\TemplatePartType;
 use WP_UnitTestCase;
 
 /**
- * @covers \Crate\Entity\NavigationType
+ * @covers \SiteCargo\Entity\NavigationType
  */
 final class NavigationRoundTripTest extends WP_UnitTestCase {
 
@@ -31,7 +31,7 @@ final class NavigationRoundTripTest extends WP_UnitTestCase {
 
 	public function set_up(): void {
 		parent::set_up();
-		$this->dir = get_temp_dir() . 'crate-nav-' . uniqid();
+		$this->dir = get_temp_dir() . 'sitecargo-nav-' . uniqid();
 	}
 
 	public function tear_down(): void {
@@ -42,7 +42,7 @@ final class NavigationRoundTripTest extends WP_UnitTestCase {
 	}
 
 	public function test_template_part_navigation_ref_is_remapped(): void {
-		$theme = 'crate-nav-theme';
+		$theme = 'sitecargo-nav-theme';
 
 		$nav_id = self::factory()->post->create(
 			array(

@@ -2,14 +2,14 @@
 /**
  * Plugin bootstrap.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate;
+namespace SiteCargo;
 
-use Crate\CLI\Command;
+use SiteCargo\CLI\Command;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -53,7 +53,7 @@ final class Plugin {
 	 */
 	public function boot(): void {
 		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-			\WP_CLI::add_command( 'crate', Command::class );
+			\WP_CLI::add_command( 'sitecargo', Command::class );
 		}
 	}
 }

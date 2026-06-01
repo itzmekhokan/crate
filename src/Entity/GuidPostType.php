@@ -2,22 +2,22 @@
 /**
  * Base for GUID-identified post entity types.
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Entity;
+namespace SiteCargo\Entity;
 
-use Crate\Engine\ExportContext;
-use Crate\Engine\Identity;
+use SiteCargo\Engine\ExportContext;
+use SiteCargo\Engine\Identity;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Shared logic for standalone content posts whose identity is a stable GUID
  * stamped into post meta (patterns, navigation menus). Post IDs differ between
- * environments, so the GUID is what matches them across a crate.
+ * environments, so the GUID is what matches them across a bundle.
  */
 abstract class GuidPostType implements EntityType {
 

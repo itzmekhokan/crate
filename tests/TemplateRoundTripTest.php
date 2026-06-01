@@ -2,23 +2,23 @@
 /**
  * Round-trip tests for theme-scoped entities (templates + parts).
  *
- * @package Crate
+ * @package SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace Crate\Tests;
+namespace SiteCargo\Tests;
 
-use Crate\Bundle\Bundle;
-use Crate\Engine\Exporter;
-use Crate\Engine\Importer;
-use Crate\Engine\ReferenceRewriter;
-use Crate\Entity\TemplatePartType;
-use Crate\Entity\TemplateType;
+use SiteCargo\Bundle\Bundle;
+use SiteCargo\Engine\Exporter;
+use SiteCargo\Engine\Importer;
+use SiteCargo\Engine\ReferenceRewriter;
+use SiteCargo\Entity\TemplatePartType;
+use SiteCargo\Entity\TemplateType;
 use WP_UnitTestCase;
 
 /**
- * @covers \Crate\Entity\ThemeScopedType
+ * @covers \SiteCargo\Entity\ThemeScopedType
  */
 final class TemplateRoundTripTest extends WP_UnitTestCase {
 
@@ -31,7 +31,7 @@ final class TemplateRoundTripTest extends WP_UnitTestCase {
 
 	public function set_up(): void {
 		parent::set_up();
-		$this->dir = get_temp_dir() . 'crate-tpl-' . uniqid();
+		$this->dir = get_temp_dir() . 'sitecargo-tpl-' . uniqid();
 	}
 
 	public function tear_down(): void {
@@ -42,7 +42,7 @@ final class TemplateRoundTripTest extends WP_UnitTestCase {
 	}
 
 	public function test_template_and_part_round_trip_by_theme_and_slug(): void {
-		$theme         = 'crate-test-theme';
+		$theme         = 'sitecargo-test-theme';
 		$attachment_id = self::factory()->attachment->create_upload_object( DIR_TESTDATA . '/images/canola.jpg' );
 
 		// A header template part with an image.
