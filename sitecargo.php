@@ -3,7 +3,7 @@
  * Plugin Name:       SiteCargo
  * Plugin URI:        https://github.com/itzmekhokan/sitecargo
  * Description:       Selectively promote WordPress full-site-editing structure and content (patterns, templates, parts, global styles, navigation) between environments — without a full database migration.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            Khokan Sardar

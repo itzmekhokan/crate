@@ -12,7 +12,7 @@
 
 WordPress full-site-editing structure (patterns, template parts, templates, global styles, navigation) lives in the database. Moving *some* of it from staging to production today means a full DB sync (destructive to orders/users/form entries) or manual copy-paste. **SiteCargo** packs exactly what you choose into a portable, git-trackable bundle and applies it elsewhere with stable identity, ID remapping, and media sideloading — never touching the data you didn't select.
 
-> **Status:** `0.1.0` — early release. Patterns, templates, template parts, global styles, and navigation, with a full export→import loop. Not yet production-hardened.
+> **Status:** `0.1.1` — early release. Patterns, templates, template parts, global styles, and navigation, with a full export→import loop. Not yet production-hardened.
 
 ## How it works
 

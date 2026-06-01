@@ -28,7 +28,7 @@ final class Manifest {
 	private $schema_version;
 
 	/**
-	 * Generator string, e.g. "sitecargo/0.1.0".
+	 * Generator string, e.g. "sitecargo/0.1.1".
 	 *
 	 * @var string
 	 */

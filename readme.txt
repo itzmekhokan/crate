@@ -4,7 +4,7 @@ Tags: migration, staging, deployment, full-site-editing, block-themes
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,10 @@ Always run `wp sitecargo diff` first to preview changes, and keep a backup. This
 
 == Changelog ==
 
+= 0.1.1 =
+* Renamed the plugin to SiteCargo.
+* Exports now default to the uploads directory (wp-content/uploads/sitecargo/) instead of the working directory; `--dir` still overrides.
+
 = 0.1.0 =
 * Initial release.
 * Export / diff / apply for patterns, templates, template parts, global styles, and navigation.
@@ -77,6 +81,9 @@ Always run `wp sitecargo diff` first to preview changes, and keep a backup. This
 * `diff` reports create / update / unchanged per entity.
 
 == Upgrade Notice ==
+
+= 0.1.1 =
+Plugin renamed to SiteCargo. Early software — test in a non-production environment first.
 
 = 0.1.0 =
 Initial release. Early software — test in a non-production environment first.
