@@ -2,12 +2,12 @@
 /**
  * Default entity type registry.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Entity;
+namespace ItzmeKhokan\SiteCargo\Entity;
 
 defined( 'ABSPATH' ) || exit;
 

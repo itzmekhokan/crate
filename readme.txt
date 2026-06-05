@@ -4,7 +4,7 @@ Tags: migration, staging, deployment, full-site-editing, block-themes
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,9 +44,11 @@ This plugin does **not** connect to any external service, send any data off-site
 2. Activate the plugin through the Plugins screen.
 3. Use [WP-CLI](https://wp-cli.org/) to run commands, for example:
 
-`wp sitecargo export --all --dir=./my-bundle`
-`wp sitecargo diff --dir=./my-bundle`
-`wp sitecargo apply --dir=./my-bundle --yes`
+`wp sitecargo export --all --dir=my-bundle`
+`wp sitecargo diff --dir=my-bundle`
+`wp sitecargo apply --dir=my-bundle --yes`
+
+Exported bundles are always written inside `wp-content/uploads/sitecargo/`; `--dir` is the folder name, not an arbitrary filesystem path.
 
 WP-CLI is required to use this plugin.
 
@@ -70,6 +72,11 @@ Always run `wp sitecargo diff` first to preview changes, and keep a backup. This
 
 == Changelog ==
 
+= 0.1.2 =
+* Hardening: exported bundles are now always written inside `wp-content/uploads/sitecargo/`. `--dir` is treated as a folder name (path separators and `..` traversal are stripped) and can no longer point writes at arbitrary locations on disk or the plugin folder.
+* `diff`/`apply` resolve a bare `--dir` name against `uploads/sitecargo/`, while still accepting a full path to a bundle copied from another environment.
+* Namespaced all PHP under the unique `ItzmeKhokan\SiteCargo` prefix to avoid conflicts with other plugins and themes.
+
 = 0.1.1 =
 * Renamed the plugin to SiteCargo.
 * Exports now default to the uploads directory (wp-content/uploads/sitecargo/) instead of the working directory; `--dir` still overrides.
@@ -81,6 +88,9 @@ Always run `wp sitecargo diff` first to preview changes, and keep a backup. This
 * `diff` reports create / update / unchanged per entity.
 
 == Upgrade Notice ==
+
+= 0.1.2 =
+Security hardening: exports are now confined to wp-content/uploads/sitecargo/. Use `--dir=<name>` (a folder name) rather than a filesystem path.
 
 = 0.1.1 =
 Plugin renamed to SiteCargo. Early software — test in a non-production environment first.

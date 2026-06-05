@@ -2,12 +2,12 @@
 /**
  * Bundle manifest.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Bundle;
+namespace ItzmeKhokan\SiteCargo\Bundle;
 
 defined( 'ABSPATH' ) || exit;
 

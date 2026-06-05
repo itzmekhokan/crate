@@ -2,18 +2,18 @@
 /**
  * Export orchestrator.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Engine;
+namespace ItzmeKhokan\SiteCargo\Engine;
 
-use SiteCargo\Bundle\Bundle;
-use SiteCargo\Bundle\Manifest;
-use SiteCargo\Entity\EntityType;
-use SiteCargo\Entity\TypeRegistry;
-use SiteCargo\Plugin;
+use ItzmeKhokan\SiteCargo\Bundle\Bundle;
+use ItzmeKhokan\SiteCargo\Bundle\Manifest;
+use ItzmeKhokan\SiteCargo\Entity\EntityType;
+use ItzmeKhokan\SiteCargo\Entity\TypeRegistry;
+use ItzmeKhokan\SiteCargo\Plugin;
 
 defined( 'ABSPATH' ) || exit;
 

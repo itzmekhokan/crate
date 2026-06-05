@@ -2,17 +2,17 @@
 /**
  * Import orchestrator.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Engine;
+namespace ItzmeKhokan\SiteCargo\Engine;
 
-use SiteCargo\Bundle\Bundle;
-use SiteCargo\Bundle\BundleReader;
-use SiteCargo\Entity\EntityType;
-use SiteCargo\Entity\TypeRegistry;
+use ItzmeKhokan\SiteCargo\Bundle\Bundle;
+use ItzmeKhokan\SiteCargo\Bundle\BundleReader;
+use ItzmeKhokan\SiteCargo\Entity\EntityType;
+use ItzmeKhokan\SiteCargo\Entity\TypeRegistry;
 
 defined( 'ABSPATH' ) || exit;
 

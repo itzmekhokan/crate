@@ -2,14 +2,14 @@
 /**
  * Plugin bootstrap.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo;
+namespace ItzmeKhokan\SiteCargo;
 
-use SiteCargo\CLI\Command;
+use ItzmeKhokan\SiteCargo\CLI\Command;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -22,7 +22,7 @@ final class Plugin {
 	/**
 	 * Plugin version. Stamped into every exported bundle's manifest.
 	 */
-	public const VERSION = '0.1.1';
+	public const VERSION = '0.1.2';
 
 	/**
 	 * Bundle format version. Bump only on incompatible changes to the bundle

@@ -2,23 +2,23 @@
 /**
  * Round-trip tests for theme-scoped entities (templates + parts).
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Tests;
+namespace ItzmeKhokan\SiteCargo\Tests;
 
-use SiteCargo\Bundle\Bundle;
-use SiteCargo\Engine\Exporter;
-use SiteCargo\Engine\Importer;
-use SiteCargo\Engine\ReferenceRewriter;
-use SiteCargo\Entity\TemplatePartType;
-use SiteCargo\Entity\TemplateType;
+use ItzmeKhokan\SiteCargo\Bundle\Bundle;
+use ItzmeKhokan\SiteCargo\Engine\Exporter;
+use ItzmeKhokan\SiteCargo\Engine\Importer;
+use ItzmeKhokan\SiteCargo\Engine\ReferenceRewriter;
+use ItzmeKhokan\SiteCargo\Entity\TemplatePartType;
+use ItzmeKhokan\SiteCargo\Entity\TemplateType;
 use WP_UnitTestCase;
 
 /**
- * @covers \SiteCargo\Entity\ThemeScopedType
+ * @covers \ItzmeKhokan\SiteCargo\Entity\ThemeScopedType
  */
 final class TemplateRoundTripTest extends WP_UnitTestCase {
 
@@ -31,7 +31,7 @@ final class TemplateRoundTripTest extends WP_UnitTestCase {
 
 	public function set_up(): void {
 		parent::set_up();
-		$this->dir = get_temp_dir() . 'sitecargo-tpl-' . uniqid();
+		$this->dir = Bundle::base_dir() . '/sitecargo-tpl-' . uniqid();
 	}
 
 	public function tear_down(): void {

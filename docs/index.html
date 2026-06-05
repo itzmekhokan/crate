@@ -143,15 +143,15 @@ wp plugin install sitecargo --activate
     <h2>Usage</h2>
     <p class="lede">Three commands: export on the source, diff &amp; apply on the target.</p>
     <pre><span class="c"># On the source — export structure into a bundle</span>
-wp sitecargo export <span class="k">--all</span> --dir=./my-bundle
-wp sitecargo export <span class="k">--patterns --templates --parts --global-styles --navigation</span> --dir=./my-bundle
-wp sitecargo export <span class="k">--patterns</span> --slug=hero,call-to-action --dir=./my-bundle
+wp sitecargo export <span class="k">--all</span> --dir=my-bundle
+wp sitecargo export <span class="k">--patterns --templates --parts --global-styles --navigation</span> --dir=my-bundle
+wp sitecargo export <span class="k">--patterns</span> --slug=hero,call-to-action --dir=my-bundle
 
 <span class="c"># On the target — preview what would change (no writes)</span>
-wp sitecargo diff --dir=./my-bundle
+wp sitecargo diff --dir=my-bundle
 
 <span class="c"># On the target — apply (remaps IDs, sideloads media)</span>
-wp sitecargo apply --dir=./my-bundle <span class="k">--yes</span></pre>
+wp sitecargo apply --dir=my-bundle <span class="k">--yes</span></pre>
   </div>
 </section>
 

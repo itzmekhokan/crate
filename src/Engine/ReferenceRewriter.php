@@ -2,12 +2,12 @@
 /**
  * Block-markup reference extraction and rewriting.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Engine;
+namespace ItzmeKhokan\SiteCargo\Engine;
 
 defined( 'ABSPATH' ) || exit;
 

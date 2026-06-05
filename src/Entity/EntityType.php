@@ -2,14 +2,14 @@
 /**
  * Entity type contract.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Entity;
+namespace ItzmeKhokan\SiteCargo\Entity;
 
-use SiteCargo\Engine\ExportContext;
+use ItzmeKhokan\SiteCargo\Engine\ExportContext;
 
 defined( 'ABSPATH' ) || exit;
 

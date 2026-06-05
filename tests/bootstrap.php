@@ -6,7 +6,7 @@
  * test library with the WP_TESTS_DIR env var, or rely on the fallback to the
  * sibling `wordpress-develop` checkout's PHPUnit harness.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );

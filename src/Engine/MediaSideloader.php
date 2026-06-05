@@ -2,14 +2,14 @@
 /**
  * Media sideloading for import.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Engine;
+namespace ItzmeKhokan\SiteCargo\Engine;
 
-use SiteCargo\Bundle\BundleReader;
+use ItzmeKhokan\SiteCargo\Bundle\BundleReader;
 
 defined( 'ABSPATH' ) || exit;
 

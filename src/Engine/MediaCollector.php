@@ -2,14 +2,14 @@
 /**
  * Media collection for export.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Engine;
+namespace ItzmeKhokan\SiteCargo\Engine;
 
-use SiteCargo\Bundle\Bundle;
+use ItzmeKhokan\SiteCargo\Bundle\Bundle;
 
 defined( 'ABSPATH' ) || exit;
 

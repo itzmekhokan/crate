@@ -2,17 +2,17 @@
 /**
  * WP-CLI front-end.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\CLI;
+namespace ItzmeKhokan\SiteCargo\CLI;
 
-use SiteCargo\Bundle\Bundle;
-use SiteCargo\Engine\Exporter;
-use SiteCargo\Engine\Importer;
-use SiteCargo\Entity\TypeRegistry;
+use ItzmeKhokan\SiteCargo\Bundle\Bundle;
+use ItzmeKhokan\SiteCargo\Engine\Exporter;
+use ItzmeKhokan\SiteCargo\Engine\Importer;
+use ItzmeKhokan\SiteCargo\Entity\TypeRegistry;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -47,17 +47,19 @@ final class Command {
 	 * [--slug=<slugs>]
 	 * : Restrict to a comma-separated list of slugs.
 	 *
-	 * [--dir=<path>]
-	 * : Output directory for the bundle. Defaults to the uploads directory:
-	 * wp-content/uploads/sitecargo/bundle-<timestamp>.
+	 * [--dir=<name>]
+	 * : Name of the bundle folder. For safety the bundle is always written inside
+	 * the site's uploads directory (wp-content/uploads/sitecargo/<name>); any path
+	 * separators or traversal segments in <name> are stripped. Defaults to
+	 * bundle-<timestamp>.
 	 *
 	 * ## EXAMPLES
 	 *
 	 *     # Export patterns + templates + parts + global styles.
-	 *     $ wp sitecargo export --all --dir=./my-bundle
+	 *     $ wp sitecargo export --all --dir=my-bundle
 	 *
 	 *     # Export just two patterns.
-	 *     $ wp sitecargo export --patterns --slug=hero,call-to-action --dir=./my-bundle
+	 *     $ wp sitecargo export --patterns --slug=hero,call-to-action --dir=my-bundle
 	 *
 	 * @when after_wp_load
 	 *
@@ -82,8 +84,7 @@ final class Command {
 			\WP_CLI::error( 'Nothing selected. Pass one of --patterns, --templates, --parts, --global-styles, or --all.' );
 		}
 
-		$dir    = isset( $assoc['dir'] ) ? (string) $assoc['dir'] : self::default_bundle_dir();
-		$bundle = new Bundle( $dir );
+		$bundle = Bundle::for_export( isset( $assoc['dir'] ) ? (string) $assoc['dir'] : '' );
 
 		$opts = array();
 		if ( ! empty( $assoc['slug'] ) ) {
@@ -230,33 +231,27 @@ final class Command {
 	}
 
 	/**
-	 * Default output directory for a new bundle, inside the site's uploads
-	 * directory (e.g. wp-content/uploads/sitecargo/bundle-<timestamp>).
+	 * Resolve and validate the --dir bundle argument for read operations.
 	 *
-	 * Writing under uploads — rather than the current working directory or the
-	 * plugin folder — keeps bundles outside the plugin (which is wiped on
-	 * upgrade) and compatible with multisite and custom upload paths.
-	 */
-	private static function default_bundle_dir(): string {
-		$uploads = wp_upload_dir();
-		$base    = ! empty( $uploads['basedir'] ) ? $uploads['basedir'] : getcwd();
-
-		return rtrim( (string) $base, '/\\' ) . '/sitecargo/bundle-' . gmdate( 'Ymd-His' );
-	}
-
-	/**
-	 * Resolve and validate the --dir bundle argument.
+	 * A bare name is resolved against the SiteCargo uploads folder (the same place
+	 * `export` writes to), so `--dir=my-bundle` round-trips with export. An
+	 * explicit existing path is also accepted, allowing a bundle transferred from
+	 * another environment to be applied from wherever it was placed.
 	 *
 	 * @param array<string,string> $assoc Associative arguments.
 	 */
 	private function require_bundle( array $assoc ): Bundle {
 		if ( empty( $assoc['dir'] ) ) {
-			\WP_CLI::error( 'Provide the bundle path with --dir=<path>.' );
+			\WP_CLI::error( 'Provide the bundle with --dir=<name|path>.' );
 		}
 
-		$dir = (string) $assoc['dir'];
-		if ( ! is_dir( $dir ) ) {
-			\WP_CLI::error( "Bundle directory not found: {$dir}" );
+		$dir         = (string) $assoc['dir'];
+		$in_uploads  = Bundle::base_dir() . '/' . ltrim( wp_normalize_path( $dir ), '/' );
+
+		if ( is_dir( $in_uploads ) ) {
+			$dir = $in_uploads;
+		} elseif ( ! is_dir( $dir ) ) {
+			\WP_CLI::error( "Bundle not found: {$dir}" );
 		}
 
 		return new Bundle( $dir );

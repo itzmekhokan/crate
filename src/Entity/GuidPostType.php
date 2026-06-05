@@ -2,15 +2,15 @@
 /**
  * Base for GUID-identified post entity types.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Entity;
+namespace ItzmeKhokan\SiteCargo\Entity;
 
-use SiteCargo\Engine\ExportContext;
-use SiteCargo\Engine\Identity;
+use ItzmeKhokan\SiteCargo\Engine\ExportContext;
+use ItzmeKhokan\SiteCargo\Engine\Identity;
 
 defined( 'ABSPATH' ) || exit;
 

@@ -54,16 +54,19 @@ wp plugin activate sitecargo
 ## Usage
 
 ```bash
-# On the source: export structure into a bundle.
-wp sitecargo export --all --dir=./my-bundle
-wp sitecargo export --patterns --templates --parts --global-styles --navigation --dir=./my-bundle
-wp sitecargo export --patterns --slug=hero,call-to-action --dir=./my-bundle
+# On the source: export structure into a bundle. The bundle is written under
+# wp-content/uploads/sitecargo/<name>; --dir is just the folder name.
+wp sitecargo export --all --dir=my-bundle
+wp sitecargo export --patterns --templates --parts --global-styles --navigation --dir=my-bundle
+wp sitecargo export --patterns --slug=hero,call-to-action --dir=my-bundle
 
 # On the target: preview what an import would change (no writes).
-wp sitecargo diff --dir=./my-bundle
+# --dir takes a name under uploads/sitecargo/, or a full path to a bundle
+# copied over from another environment.
+wp sitecargo diff --dir=my-bundle
 
 # On the target: apply the bundle (remaps IDs, sideloads media).
-wp sitecargo apply --dir=./my-bundle --yes
+wp sitecargo apply --dir=my-bundle --yes
 ```
 
 Supported entity types: patterns (`wp_block`), templates (`wp_template`), template parts (`wp_template_part`), global styles (`wp_global_styles`), and navigation (`wp_navigation`). Templates/parts must be customized in the database to be exported — unedited theme-file templates ship with the theme already.

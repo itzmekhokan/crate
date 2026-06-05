@@ -2,23 +2,23 @@
 /**
  * Round-trip tests for the export → import loop.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Tests;
+namespace ItzmeKhokan\SiteCargo\Tests;
 
-use SiteCargo\Bundle\Bundle;
-use SiteCargo\Engine\Exporter;
-use SiteCargo\Engine\Identity;
-use SiteCargo\Engine\Importer;
-use SiteCargo\Engine\ReferenceRewriter;
-use SiteCargo\Entity\PatternType;
+use ItzmeKhokan\SiteCargo\Bundle\Bundle;
+use ItzmeKhokan\SiteCargo\Engine\Exporter;
+use ItzmeKhokan\SiteCargo\Engine\Identity;
+use ItzmeKhokan\SiteCargo\Engine\Importer;
+use ItzmeKhokan\SiteCargo\Engine\ReferenceRewriter;
+use ItzmeKhokan\SiteCargo\Entity\PatternType;
 use WP_UnitTestCase;
 
 /**
- * @covers \SiteCargo\Engine\Importer
+ * @covers \ItzmeKhokan\SiteCargo\Engine\Importer
  */
 final class ImporterTest extends WP_UnitTestCase {
 
@@ -31,7 +31,7 @@ final class ImporterTest extends WP_UnitTestCase {
 
 	public function set_up(): void {
 		parent::set_up();
-		$this->dir = get_temp_dir() . 'sitecargo-test-' . uniqid();
+		$this->dir = Bundle::base_dir() . '/sitecargo-test-' . uniqid();
 	}
 
 	public function tear_down(): void {

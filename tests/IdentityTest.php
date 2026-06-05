@@ -2,18 +2,18 @@
 /**
  * Tests for Identity.
  *
- * @package SiteCargo
+ * @package ItzmeKhokan\SiteCargo
  */
 
 declare( strict_types=1 );
 
-namespace SiteCargo\Tests;
+namespace ItzmeKhokan\SiteCargo\Tests;
 
-use SiteCargo\Engine\Identity;
+use ItzmeKhokan\SiteCargo\Engine\Identity;
 use WP_UnitTestCase;
 
 /**
- * @covers \SiteCargo\Engine\Identity
+ * @covers \ItzmeKhokan\SiteCargo\Engine\Identity
  */
 final class IdentityTest extends WP_UnitTestCase {
 
